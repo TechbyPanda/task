@@ -1,0 +1,20 @@
+<div style="text-align:center;margin-top:10px;">
+    <input type="text" [(ngModel)]="search">
+</div>
+
+<div class="products">
+    <div class="product_card" *ngFor="let p of products | filter:search">
+        <div class="product_card_img">
+            <img src="{{p.image1}}" alt="">
+            <div class="card_icons">
+                <a (click)="addtocart(p._id)"><i class="fas fa-shopping-cart"></i></a>
+                <a href=""><i class="fas fa-eye"></i></a>
+                <a href=""><i class="fas fa-heart"></i></a>
+            </div>
+        </div>
+        <div class="product_card_content">
+            <span>{{p.brand}}</span>
+            <span class="price">{{p.price | currency:'INR'}}</span>
+        </div>
+    </div>
+</div>
